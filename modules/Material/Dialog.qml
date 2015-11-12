@@ -32,6 +32,8 @@ import Material.Extras 0.1
  */
 PopupBase {
     id: dialog
+    property alias titleBackgroundColor: titleBackground.backgroundColor
+    property color backgroundColor: "white"
 
     overlayLayer: "dialogOverlayLayer"
     overlayColor: Qt.rgba(0, 0, 0, 0.3)
@@ -124,6 +126,7 @@ PopupBase {
     View {
         id: dialogContainer
 
+        backgroundColor: dialog.backgroundColor
         anchors.fill: parent
         elevation: 5
         radius: Units.dp(2)
@@ -148,7 +151,7 @@ PopupBase {
             clip: true
             height: headerView.height + Units.dp(32)
 
-            View {
+            View { id: titleBackground
                 backgroundColor: "white"
                 elevation: content.atYBeginning ? 0 : 1
                 fullWidth: true
@@ -200,6 +203,8 @@ PopupBase {
 
         Rectangle {
             anchors.fill: content
+            color: dialog.backgroundColor
+
         }
 
         Flickable {
@@ -258,7 +263,7 @@ PopupBase {
                 height: hasActions ? positiveButton.implicitHeight + Units.dp(8) : 0
                 visible: hasActions
 
-                backgroundColor: "white"
+                backgroundColor: dialog.backgroundColor
                 elevation: content.atYEnd ? 0 : 1
                 fullWidth: true
                 elevationInverted: true
