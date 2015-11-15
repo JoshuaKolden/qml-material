@@ -66,6 +66,16 @@ View {
     }
 
     tintColor: selected
-               ? Qt.rgba(0,0,0,0.05)
-               : ink.containsMouse ? Qt.rgba(0,0,0,0.03) : Qt.rgba(0,0,0,0)
+                ? Theme.alpha(Theme.lightDark(Theme.backgroundColor,
+                              Theme.light.textColor,
+                              Theme.dark.textColor),
+                        0.05)
+                : ink.containsMouse
+                    ? Theme.alpha(Theme.lightDark(Theme.backgroundColor,
+                                        Theme.light.textColor,
+                                        Theme.dark.textColor), 0.35)
+                    : Qt.rgba(0,0,0,0)
+
+               // ? Qt.rgba(0,0,0,0.05)
+               // : ink.containsMouse ? Qt.rgba(0,0,0,0.03) : Qt.rgba(0,0,0,0)
 }

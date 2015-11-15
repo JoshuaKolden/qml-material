@@ -36,7 +36,7 @@ Item {
 
     property string style: "default"
 
-    property color backgroundColor: elevation > 0 ? "white" : "transparent"
+    property color backgroundColor: elevation > 0 ? Theme.backgroundColor : "transparent"
     property color tintColor: "transparent"
 
     property alias border: rect.border
