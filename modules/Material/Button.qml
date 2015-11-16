@@ -59,7 +59,7 @@ Controls.Button {
        The background color of the button. By default, this is white for a raised
        button and transparent for a flat button.
      */
-    property color backgroundColor: elevation > 0 ? "white" : "transparent"
+    property color backgroundColor: elevation > 0 ? Theme.backgroundColor : "transparent"
     
     /*!
        \internal
